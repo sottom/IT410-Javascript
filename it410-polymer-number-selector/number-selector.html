@@ -1,0 +1,74 @@
+<!--
+how do you make max and min default as NaN?
+
+how do you seperate the different elements to increment independent of each other?
+
+
+-->
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="number-selector">
+
+  <template>
+
+    <style>
+      /* local DOM styles go here */
+      :host {
+        display: inline-block;
+      }
+        iron-icon, label{
+            user-select: none;
+        }
+    </style>
+    <div>
+      <iron-icon id="plus" icon="icons:add-circle-outline"></iron-icon>
+        <label>{{value}}</label>
+      <iron-icon id="minus" icon="icons:remove-circle-outline"></iron-icon>
+    </div>
+    <!-- local DOM goes here -->
+  </template>
+
+  <script>
+  Polymer({
+    is: 'number-selector',
+    
+    listeners: {
+        'plus.click': 'increment',
+        'minus.click': 'decrement'
+    },
+      
+    properties: {
+        value:{
+            type: Number,
+            value: 0
+        },
+        minimum:{
+            type: Number,
+            value: NaN
+        },
+        maximum:{
+            type: Number,
+            value: NaN
+        }
+    },
+      
+    increment: function() {
+        if(isNaN(this.maximum) || this.value < this.maximum){
+            this.value++;
+        }
+    },
+    
+    decrement: function() {
+       if(isNaN(this.minimum) || this.value > this.minimum){    
+            this.value--;
+        }
+    }
+      
+  });
+      
+      var el1 = document.createElement('number-selector');
+  </script>
+
+</dom-module>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Family Storehouse</title>
+	<style type="text/css">
+		#login {
+			display:none;
+		}
+		#sign_up {
+			display:none;
+		}
+		#body{
+			background-color: #E4E4E4;
+		}
+		#login-container{
+			margin-right: auto;
+			margin-left: auto;
+			width: 350px;
+			height: 350px;
+			background-color: white;
+			border: solid 4px black;
+			display:flex;
+			justify-content: center;
+			align-items:center;
+		}
+		#login-content{
+			margin-right: auto;
+			margin-left: auto;
+			width: 200px;
+			
+		}
+		.img-thumbnail{
+			height:250px;
+			width:250px;
+		}
+		#img1{
+			margin-right: auto;
+			margin-left: 50px;
+		}
+		.froggy{
+			display:flex;
+			justify-content: space-between;
+		}
+		
+
+
+	</style>
+	
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+
+</head>
+<body id="body">
+<!-- <div class="row">
+	<div id="img1" class="container-fluid">
+		<img src="img/sheri_mitchell.jpg" class=" img-thumbnail img-responsive" alt="">
+	</div>
+</div>
+<div class="row">
+	<img src="img/sheri_mitchell.jpg" class=" img-thumbnail img-responsive froggy" alt="">
+	<img src="img/sheri_mitchell.jpg" class=" img-thumbnail img-responsive froggy" alt="">
+	<img src="img/sheri_mitchell.jpg" class=" img-thumbnail img-responsive froggy" alt="">
+</div> -->
+<div id="login-container" class="row">
+	<div id="img2" class="container-fluid">
+		<section id="login-content">
+	<br><br><br>
+<!-- <h2>Fill Your Home</h2>
+ -->	<div class="accordion" id="accordion2">
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle btn btn-success btn-block" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	        Login
+	      </a>
+	    </div>
+	    <div id="collapseOne" class="accordion-body collapse">
+	    <form class="accordion-inner">
+			<h3>Login</h3>
+			<label>Username</label><br>
+				<input id="l_username" class="field" type="text" name="username"><br>
+			<label>Password</label><br>
+				<input id="l_password" class="field" class="field" type="password" name="password"><br>
+			<button type="submit">Submit</button>
+		</form>
+	    </div>
+	  </div>
+	  <br>
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle btn btn-success btn-block" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+	       Sign Up
+	      </a>
+	    </div>
+	    <div id="collapseTwo" class="accordion-body collapse">
+	    <form class="accordion-inner">
+			<h3>Sign Up</h3>
+			<label>Username</label><br>
+				<input id="s_username" class="field" type="text" name="username"><br>
+			<label>Password</label><br>
+				<input id="s_password" class="field" type="password" name="password"><br>
+			<label>Confirm Password</label><br>
+				<input id="confirm" class="field" type="password" name="confirm" onkeypress="confirm_pass()"><br>
+			<button type="submit">Submit</button>
+		</form>
+	    </div>
+	  </div>
+	</div>
+	<br><br><br>
+<!-- 	<h2>Protect your Family</h2>
+ -->	</section>
+
+	</div>
+</div>
+
+
+<!-- 
+	<button class="btn btn-success btn-block" id="Login" onclick="logCount();">Login</button>
+	<button class="btn btn-success btn-block" id="Sign_up" onclick="signCount();">Sign Up</button>
+
+	<div id="login">
+		<form>
+			<h3>Login</h3>
+			<label>Username</label><br>
+				<input id="l_username" class="field" type="text" name="username"><br>
+			<label>Password</label><br>
+				<input id="l_password" class="field" class="field" type="password" name="password"><br>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+	<div id="sign_up">
+		<form>
+			<h3>Sign Up</h3>
+			<label>Username</label><br>
+				<input id="s_username" class="field" type="text" name="username"><br>
+			<label>Password</label><br>
+				<input id="s_password" class="field" type="password" name="password"><br>
+			<label>Confirm Password</label><br>
+				<input id="confirm" class="field" type="password" name="confirm" onkeypress="confirm_pass()"><br>
+			<button type="submit">Submit</button>
+		</form>
+	</div> -->
+
+
+
+
+	<script type="text/javascript">
+		var log_count = 1;
+		var sign_count = 1;
+		
+		function login(log_count)
+		{
+			//change the background from outside of house to inside of house
+			if(log_count % 2 == 0)
+			{
+				if(document.getElementById("sign_up").style.display == "block")
+				{
+					sign_count++;
+					document.getElementById("sign_up").style.display = "none";
+				}
+				
+				document.getElementById("login").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("login").style.display = "none";
+			}
+		}
+
+		function sign_up(sign_count)
+		{
+			if(sign_count % 2 == 0)
+			{
+				if(document.getElementById("login").style.display == "block")
+				{
+					log_count++;
+					document.getElementById("login").style.display = "none";
+
+				}
+
+				document.getElementById("sign_up").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("sign_up").style.display = "none";
+			}
+		}
+
+		function logCount()
+		{
+			log_count++;
+			console.log(log_count);
+			login(log_count);
+		}
+
+		function signCount()
+		{
+			sign_count++;
+			console.log(sign_count);
+			sign_up(sign_count);
+		}
+
+		function confirm_pass()
+		{
+			var password = document.getElementById("s_password").innerHTML;
+			var confirm = document.getElementById("confirm").innerHTML;
+			if(confirm != password)
+			{
+
+			}
+		}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "hello-sessions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sottom/hello-sessions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sottom/hello-sessions/issues"
+  },
+  "homepage": "https://github.com/sottom/hello-sessions#readme"
+}

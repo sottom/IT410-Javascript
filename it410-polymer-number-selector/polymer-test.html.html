@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="bower_components/polymer/polymer.html">
+
+</head>
+<body>
+    <my-element>
+        <p></p>
+    </my-element>
+
+    <dom-module id="my-element">
+          <template>
+            <div>
+              <p id="bob">
+              Hi! I'm a Polymer element that was defined in the
+              main document!
+                </p>
+            </div>
+          </template>
+    </dom-module>
+    
+    <script>
+            MyElement = Polymer({
+                is: 'my-element',
+                
+                properties: {
+                    dog:{
+                        type: 'Object',
+                        value: {'name':'bobby joe'},
+                        notify: true,
+                        reflectToAttribute: true
+                    }
+                },
+                //????????
+                responseHandler:  function(response) {
+                  this.response = 'loaded';
+                  // results in this.setAttribute('response', 'loaded');
+                },
+
+                created: function() {
+                    this.textContent = "My new Element!";
+                },
+                
+                created: function(){
+                    console.log(this.localName + '#' + this.id + ' was created');
+                    
+//                    this.setAttribute("disabled", true);
+                },
+                
+                ready: function(){
+                    console.log(this.localName + '#' + this.id + ' has local DOM initialized');
+                    
+                    this.$.bob.textContent = this.tagName;
+                    //????
+                    this.$$('p') = "hello bob";
+                },
+                
+                attached: function() {
+                    console.log(this.localName + '#' + this.id + ' was attached');
+                  },
+                
+                detached: function() {
+                    console.log(this.localName + '#' + this.id + ' was detached');
+                  },
+
+              attributeChanged: function(name, type) {
+                console.log(this.localName + '#' + this.id + ' attribute ' + name +
+                  ' was changed to ' + this.getAttribute(name));
+              }
+            });
+
+            //var el1 = document.createElement('my-element');\
+
+            var el2 = new MyElement();
+        </script>
+</body>
+</html>
